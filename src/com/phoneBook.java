@@ -1,9 +1,12 @@
+package com;
+
 import java.util.ArrayList;
 import java.util.HashMap;
+import java.util.HashSet;
 import java.util.Map;
 
-public class phoneBook {
-    public static class Person {
+/*public class phoneBook {
+    public class Person {
         public String name;
 
         Person(String name) {
@@ -15,30 +18,26 @@ public class phoneBook {
         }
     }
 
-    public static class ListOfTelephones {
-        public ArrayList<String> phoneList = new ArrayList<>();
+    public class ListOfTelephones {
+        public HashSet<String> phoneList = new HashSet<>();
 
         ListOfTelephones(String num) {
-            String[] container;
-            container = new String[]{"-", "+", "#", "*", "\\d"};
-            if (num.equals(container))
-                phoneList.add(num);
-            else throw new IllegalAccessError();
+            phoneList.add(num);
         }
 
-        public ArrayList<String> getlist() {
+        public HashSet<String> getlist() {
             return phoneList;
         }
     }
 
-    public static class Booklist {
+    public class Booklist {
         private Map<Person, ListOfTelephones> book = new HashMap<>();
 
         public Booklist(Map<Person, ListOfTelephones> myMap) {
             this.book = myMap;
         }
 
-        public void addpersonBook(Person hum, ListOfTelephones num) {
+        public void addPersonBook(Person hum, ListOfTelephones num) {
             book.put(hum, num);
         }
 
@@ -49,15 +48,13 @@ public class phoneBook {
         public void addnum(Person hum, ListOfTelephones num) {
             if (book.containsKey(hum)) {
                 book.get(hum).getlist().add(String.valueOf(num));
-            }
-            else throw new IllegalAccessError();
+            } else throw new IllegalAccessError();
         }
 
         public void removenum(Person hum, ListOfTelephones num) {
             if (book.containsKey(hum)) {
                 book.get(hum).getlist().remove(String.valueOf(num));
-            }
-            else throw new IllegalAccessError();
+            } else throw new IllegalAccessError();
         }
 
         public ListOfTelephones findOnNumber(Person hum) {
@@ -75,5 +72,9 @@ public class phoneBook {
             }
             return name;
         }
+
+        public Map<Person, ListOfTelephones> getPhoneBook() {
+            return book;
+        }
     }
-}
+}*/
