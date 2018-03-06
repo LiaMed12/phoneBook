@@ -94,12 +94,12 @@ class phoneBookTest {
     }
 
     @Test
-    public void RemoveNumber(){
+    public void RemoveNumber() {
         Person p = new Person("Lala", "3425");
         p.addPhone("+*23456");
         p.removePhone("3425");
-        assertEquals(1,p.getPhones().length);
-        assertEquals("+*23456" , p.getPhones()[0]);
+        assertEquals(1, p.getPhones().length);
+        assertEquals("+*23456", p.getPhones()[0]);
     }
 
     @Test
@@ -108,12 +108,39 @@ class phoneBookTest {
         try {
             Person p = new Person("Lala", "3425");
             p.removePhone("3425");
-        }catch (IllegalStateException ex){
+        } catch (IllegalStateException ex) {
             s = ex.getMessage();
         }
-        assertEquals("Последний номер удаляться не должен",s);
+        assertEquals("Последний номер удаляться не должен", s);
     }
 
+    @Test
+    public void AddPerson() {
+        PhoneBook p = new PhoneBook();
+        p.addPerson(new Person("ria", "456784"));
+        p.addPerson(new Person("rt", "5690"));
+        p.addPerson(new Person("zzxxaa", "456738"));
+        p.addPerson(new Person("fghj", "45678"));
+
+        Person[] res = p.getPersons();
+
+        assertEquals("fghj", res[0].getName());
+        assertEquals("ria", res[1].getName());
+        assertEquals("rt", res[2].getName());
+        assertEquals("zzxxaa", res[3].getName());
+    }
+
+    @Test
+    public void removePersonByName() {
+        PhoneBook p = new PhoneBook();
+        p.addPerson(new Person("ria", "456784"));
+        p.addPerson(new Person("rt", "5690"));
+        p.addPerson(new Person("zzxxaa", "456738"));
+        p.addPerson(new Person("fghj", "45678"));
+        p.removePerson("rt");
+
+        assertEquals(null, p.getPerson("rt"));
+    }
 
     @Test
     public void addPersonBook() {

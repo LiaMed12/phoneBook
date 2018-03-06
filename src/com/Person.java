@@ -2,7 +2,7 @@ package com;
 
 import java.util.HashSet;
 
-public class Person {
+public class Person implements Comparable<Person> {
     private HashSet<String> phoneList = new HashSet<>();
     private String name;
 
@@ -29,6 +29,7 @@ public class Person {
         }
     }
 
+
     public String getName() {
         return name;
     }
@@ -47,5 +48,10 @@ public class Person {
             throw new IllegalStateException("Последний номер удаляться не должен");
         }
         return phoneList.remove(num);
+    }
+
+    @Override
+    public int compareTo(Person o) {
+        return this.name.compareTo(o.name);
     }
 }
