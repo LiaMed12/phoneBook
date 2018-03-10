@@ -29,7 +29,7 @@ public class Person implements Comparable<Person> {
         }
     }
 
-    boolean conteinerPhone(String phone){
+    boolean conteinerPhone(String phone) {
         return phoneList.contains(phone);
     }
 
