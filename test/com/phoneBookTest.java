@@ -9,11 +9,6 @@ import java.util.Map;
 import static org.junit.jupiter.api.Assertions.*;
 
 class phoneBookTest {
-    // private static Map<phoneBook.Person, phoneBook.ListOfTelephones> book = new HashMap<>();
-
-    //private static phoneBook.Booklist createPhoneBook() {
-    //   return new phoneBook.Booklist(book);
-    // }
 
     @Test
     public void createPerson() {
@@ -131,6 +126,30 @@ class phoneBookTest {
     }
 
     @Test
+    public void findPersonByName() {
+        PhoneBook p = new PhoneBook();
+        p.addPerson(new Person("ria", "456784"));
+        p.addPerson(new Person("rt", "5690"));
+        p.addPerson(new Person("zzxxaa", "456738"));
+        p.addPerson(new Person("fghj", "45678"));
+
+        assertEquals("5690", p.getPerson("rt").getPhones()[0]);
+
+    }
+
+    @Test
+    public void findPersonByNameFalse() {
+        PhoneBook p = new PhoneBook();
+        p.addPerson(new Person("ria", "456784"));
+        p.addPerson(new Person("rt", "5690"));
+        p.addPerson(new Person("zzxxaa", "456738"));
+        p.addPerson(new Person("fghj", "45678"));
+
+        assertEquals(null, p.getPerson("rt1"));
+
+    }
+
+    @Test
     public void removePersonByName() {
         PhoneBook p = new PhoneBook();
         p.addPerson(new Person("ria", "456784"));
@@ -143,9 +162,26 @@ class phoneBookTest {
     }
 
     @Test
-    public void addPersonBook() {
-        //phoneBook.Booklist creatlist = createPhoneBook();
-        //creatlist.addPersonBook(new phoneBook.Person("Арсен"),new phoneBook.ListOfTelephones("67389239003"));
-        //assertEquals(1, creatlist.getPhoneBook().size());
+    public void findNumber() {
+        PhoneBook p = new PhoneBook();
+        p.addPerson(new Person("ria", "456784"));
+        p.addPerson(new Person("rt", "5690"));
+        p.addPerson(new Person("zzxxaa", "456738"));
+        p.addPerson(new Person("fghj", "45678"));
+
+        assertEquals("rt", p.findPersonByNumber("5690").getName());
     }
+
+    @Test
+    public void findNumberFalse() {
+        PhoneBook p = new PhoneBook();
+        p.addPerson(new Person("ria", "456784"));
+        p.addPerson(new Person("rt", "5690"));
+        p.addPerson(new Person("zzxxaa", "456738"));
+        p.addPerson(new Person("fghj", "45678"));
+
+        assertEquals(null, p.findPersonByNumber("5690+"));
+    }
+
+
 }

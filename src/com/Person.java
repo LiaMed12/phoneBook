@@ -29,6 +29,9 @@ public class Person implements Comparable<Person> {
         }
     }
 
+    boolean conteinerPhone(String phone){
+        return phoneList.contains(phone);
+    }
 
     public String getName() {
         return name;
