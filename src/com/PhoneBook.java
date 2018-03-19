@@ -3,7 +3,7 @@ package com;
 import java.util.*;
 
 public class PhoneBook {
-    private java.util.SortedSet<Person> people = new TreeSet<>();
+    private SortedSet<Person> people = new TreeSet<>();
 
     public void addPerson(Person person) {
         people.add(person);
@@ -24,7 +24,7 @@ public class PhoneBook {
 
     public Person findPersonByNumber(String num) {
         for (Person person : people) {
-            if (person.conteinerPhone(num)) {
+            if (person.containerPhone(num)) {
                 return person;
             }
         }

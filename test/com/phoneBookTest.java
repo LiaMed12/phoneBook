@@ -56,28 +56,28 @@ class phoneBookTest {
 
 
     @Test
-    public void SingleNumber() {
+    public void singleNumber() {
         Person p = new Person("Lala", "3425");
         assertEquals(1, p.getPhones().length);
         assertEquals("3425", p.getPhones()[0]);
     }
 
     @Test
-    public void SingleName() {
+    public void singleName() {
         Person p = new Person("Lala", "3425");
         assertEquals(4, p.getName().length());
         assertEquals("Lala", p.getName());
     }
 
     @Test
-    public void AddNumber() {
+    public void addNumber() {
         Person p = new Person("Lala", "3425");
         p.addPhone("+*23456");
         assertEquals(2, p.getPhones().length);
     }
 
     @Test
-    public void AddNumberFalse() {
+    public void addNumberFalse() {
         String s = null;
         try {
             Person p = new Person("Lala", "3425");
@@ -89,7 +89,7 @@ class phoneBookTest {
     }
 
     @Test
-    public void RemoveNumber() {
+    public void removeNumber() {
         Person p = new Person("Lala", "3425");
         p.addPhone("+*23456");
         p.removePhone("3425");
@@ -98,7 +98,7 @@ class phoneBookTest {
     }
 
     @Test
-    public void RemoveNumberFalse() {
+    public void removeNumberFalse() {
         String s = null;
         try {
             Person p = new Person("Lala", "3425");
@@ -110,7 +110,7 @@ class phoneBookTest {
     }
 
     @Test
-    public void AddPerson() {
+    public void addPerson() {
         PhoneBook p = new PhoneBook();
         p.addPerson(new Person("ria", "456784"));
         p.addPerson(new Person("rt", "5690"));
