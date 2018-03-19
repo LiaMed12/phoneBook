@@ -57,4 +57,21 @@ public class Person implements Comparable<Person> {
     public int compareTo(Person o) {
         return this.name.compareTo(o.name);
     }
+
+    @Override
+    public boolean equals(Object o) {
+        return this.name.equals(((Person) o).name) && this.phoneList.equals(((Person) o).phoneList);
+    }
+
+    @Override
+    public int hashCode() {
+        return 31 * phoneList.hashCode() + name.hashCode();
+    }
+
+    @Override
+    public String toString() {
+        return "Человек(" + " Имя:" + name + " Номер(а)" + phoneList + ")";
+    }
 }
+
+

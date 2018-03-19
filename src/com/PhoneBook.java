@@ -30,4 +30,25 @@ public class PhoneBook {
         }
         return null;
     }
+
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o instanceof PhoneBook) {
+            PhoneBook phoneBook = (PhoneBook) o;
+            return people.equals(phoneBook.people);
+        }
+        return false;
+    }
+
+    @Override
+    public String toString() {
+        return "Адресная книга - " + "Человек" + people;
+    }
+
+    @Override
+    public int hashCode() {
+        return people.hashCode();
+    }
 }
